@@ -1,0 +1,25 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+body{
+    background-color: lightseagreen;
+}
+
+/* Universal Box Styling */
+.main-class{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    gap: 5%;
+}
+
+.content-box{
+    background-color: blueviolet;
+    border: 3px solid white;
+    border-radius: 5px;
+    margin-left: 10%;
+    margin-right: 20%;
+    padding: 2.5%;
+}
