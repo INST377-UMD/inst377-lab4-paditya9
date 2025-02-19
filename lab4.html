@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>Lab4: Validation Forms</title>
+        <link rel="stylesheet" href="lab4style.css">
+    </head>
+    
+    <body>
+        <h1 id="header">INST 377 - Lab 4: Validation Form</h1>
+        <div class="main-class">
+        <!-- Name Form -->
+        <form name="ValidationForm" onsubmit="return nameAlert()">
+            <div class="content-box">
+                <div class="name-main">
+                    <br>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required placeholder="Smith">
+                    <input type="submit" value="Alert Me!">
+                </div>
+            </div>
+        </form>
+        <!-- JS Code for Name Form -->
+        <script type="text/javascript">
+            function nameAlert(){
+                console.log("Attempting to fetch the name")
+                var name = document.getElementById('name').value;
+                if(name != ""){
+                    alert("Hello " + name);
+                }
+            }
+        </script>
+
+        <!-- Change Color -->
+        <div class="content-box" onclick="colorChange()">
+            <div class="color-main">
+                <br>
+                <input type="button" value="Change Color" id="changeColor">
+            </div>
+        </div>
+        <!-- JS Code for Change Color -->
+        <script>
+            function colorChange(){
+                if(document.body.style.backgroundColor == 'orange'){
+                    document.body.style.backgroundColor = 'lightseagreen'
+                    return false;
+                }
+                else{
+                    document.body.style.backgroundColor = 'orange'
+                    return false;
+                }
+            }
+        </script>
+
+        <!-- Text Tester -->
+        <form name="TextTester" onsubmit=" return validateText()">
+            <div class="content-box">
+                <div class="text-tester-main">
+                    <br>
+                    <label for="textTester">Text Tester:</label>
+                    <input type="text" id="textTester" required>
+                    <input type="submit" value="Validate Text" required>
+                </div>
+            </div>
+        </form>
+        <!-- JS code for Text Tester -->
+        <script>
+            function validateText(){
+                console.log("Fetching Validation information")
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if (validation.test(document.getElementById('textTester').value)){                    
+                    alert("Speical Character Detected! IMPOSSIBLE")
+                    return false;
+                }
+            }
+        </script>
+
+        <!-- Add Text -->
+        <div class="content-box" onclick="changeTitle()">
+            <div class="add-text-main">
+                <br>
+                <input type="button" value="Add Text">
+            </div>
+        </div>
+        <script>
+            function changeTitle(){
+                var head = document.getElementById('header');
+                head.innerHTML = head.innerHTML + "- Added Text";
+            }
+        </script>
+        </div>
+    </body>
+</html>
+
